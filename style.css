@@ -1,0 +1,164 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: #191825;
+    color: #FFA3FD;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    transition: background-color 0.3s;
+    z-index: 1000;
+}
+.tituloNav {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #79018C;
+    text-decoration: none;
+}
+.listaNav{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+}
+.toggleNav{
+    text-decoration: underline;
+    color: #79018C;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+
+/* ------------------------------------------ */
+
+/* Hero*/
+.imageBg{
+    background-image: url("./imagens/dark-minimalist.jpg");
+    position: relative;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+.hero{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-direction: row;
+    justify-content: space-between;
+    color: #79018C;
+    font-size: 4rem;
+}
+.textoHero {
+    flex: 1;
+    max-width: 600px; 
+    margin-left: 30rem;
+}
+.imagemHero {
+    margin-right: 20rem;
+    
+}
+.img-proto {
+    width: 60vh;
+    animation: mover 2s linear; 
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+}
+
+
+
+        /* Animações */
+        /* Typewriter */
+        @keyframes typing {
+            0.0000%, 31.3488% { content: ""; }
+            1.1395%, 30.2093% { content: "G"; }
+            2.2791%, 29.0698% { content: "GR"; }
+            3.4186%, 28.9302% { content: "GR4"; }
+            4.5581%, 27.7907% { content: "GR4V"; }
+            5.6977%, 26.6512% { content: "GR4V1"; }
+            6.8372%, 20.5116% { content: "GR4V17"; }
+            7.9767%, 19.3721% { content: "GR4V17Y"; }
+        
+            32.7674%{ content: ""; }
+            33.9070%{ content: "G"; }
+            34.0465%{ content: "Gr"; }
+            35.1860%{ content: "Gra"; }
+            36.3256%{ content: "Grav"; }
+            37.4651%{ content: "Gravi"; }
+            38.6047%{ content: "Gravit"; }
+            39.7443%{ content: "Gravity"; }
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50%{ opacity: 0; }
+        }
+        
+        .typewriter {
+            --caret: currentcolor;
+        }
+        
+        .typewriter::before {
+            content: "Gravity";
+            animation: typing 13.5s;
+        }
+        
+        .typewriter::after {
+            content: "";
+            border-right: 1px solid var(--caret);
+            animation: blink 0.5s linear infinite;
+        }
+        
+        .typewriter.thick::after {
+            border-right: 1ch solid var(--caret);
+        }
+        
+        .typewriter.nocaret::after {
+            border-right: 0;
+        }
+        
+        @media (prefers-reduced-motion) {
+            .typewriter::after {
+                animation: none;
+            }
+            
+            @keyframes sequencePopup {
+                0%, 100% { content: "GR4V17Y"; }
+                100% { content: "Gravity"; }
+            }
+          
+            .typewriter::before {
+                content: "Gr";
+                animation: sequencePopup 12s linear infinite;
+                animation-iteration-count: 1;
+            }
+        } 
+        /* Mover */
+        @keyframes mover {
+            0% { opacity: 0; transform: translate(-10px, 0); }
+            50% { opacity: 0.6; }
+            100%{ opacity: 1; transform: translate(0, 0); }
+        } 
+        @keyframes mover2 {
+            0% { opacity: 0; transform: translate(-200px, 0); }
+            100% { opacity: 1; transform: translate(0, 0); }
+        }
+        
+        /* ------------------------------ */ 
+/* --------------- */
