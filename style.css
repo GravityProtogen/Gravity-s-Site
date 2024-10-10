@@ -19,7 +19,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, .2);
     transition: background-color 0.3s;
     z-index: 1000;
 }
@@ -33,132 +33,187 @@ body {
     list-style-type: none;
     margin: 0;
     padding: 0;
-
 }
-.toggleNav{
+.toggleNav {
     text-decoration: underline;
     color: #79018C;
     font-size: 1rem;
     transition: color 0.3s;
 }
 
-
 /* ------------------------------------------ */
 
-/* Hero*/
-.imageBg{
+/* Hero */
+.imageBg {
     background-image: url("./imagens/dark-minimalist.jpg");
     position: relative;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    
+    height: 100vh;
 }
-.hero{
+.hero {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
-    flex-direction: row;
-    justify-content: space-between;
+    text-align: left;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     color: #79018C;
-    font-size: 4rem;
+    width: 90%;
+    max-width: 1200px;
+    padding: 0 2rem;
 }
 .textoHero {
     flex: 1;
-    max-width: 600px; 
-    margin-left: 30rem;
+    max-width: 600px; /* Set a max-width for the text */
+    font-size: 4rem;
 }
 .imagemHero {
-    margin-right: 20rem;
-    
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .img-proto {
     width: 60vh;
-    animation: mover 2s linear; 
+    animation: mover 2s linear;
     animation-iteration-count: 1;
     animation-fill-mode: both;
     animation-timing-function: linear;
 }
 
+/* Animações */
+@keyframes typing {
+    0%, 31.35% { content: ""; }
+    1.14%, 30.21% { content: "G"; }
+    2.28%, 29.07% { content: "GR"; }
+    3.42%, 28.93% { content: "GR4"; }
+    4.56%, 27.79% { content: "GR4V"; }
+    5.70%, 26.65% { content: "GR4V1"; }
+    6.84%, 20.51% { content: "GR4V17"; }
+    7.98%, 19.37% { content: "GR4V17Y"; }
 
+    32.77% { content: ""; }
+    33.91% { content: "G"; }
+    34.05% { content: "Gr"; }
+    35.19% { content: "Gra"; }
+    36.33% { content: "Grav"; }
+    37.47% { content: "Gravi"; }
+    38.60% { content: "Gravit"; }
+    39.74% { content: "Gravity"; }
+}
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
 
-        /* Animações */
-        /* Typewriter */
-        @keyframes typing {
-            0.0000%, 31.3488% { content: ""; }
-            1.1395%, 30.2093% { content: "G"; }
-            2.2791%, 29.0698% { content: "GR"; }
-            3.4186%, 28.9302% { content: "GR4"; }
-            4.5581%, 27.7907% { content: "GR4V"; }
-            5.6977%, 26.6512% { content: "GR4V1"; }
-            6.8372%, 20.5116% { content: "GR4V17"; }
-            7.9767%, 19.3721% { content: "GR4V17Y"; }
-        
-            32.7674%{ content: ""; }
-            33.9070%{ content: "G"; }
-            34.0465%{ content: "Gr"; }
-            35.1860%{ content: "Gra"; }
-            36.3256%{ content: "Grav"; }
-            37.4651%{ content: "Gravi"; }
-            38.6047%{ content: "Gravit"; }
-            39.7443%{ content: "Gravity"; }
-        }
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50%{ opacity: 0; }
-        }
-        
-        .typewriter {
-            --caret: currentcolor;
-        }
-        
-        .typewriter::before {
-            content: "Gravity";
-            animation: typing 13.5s;
-        }
-        
-        .typewriter::after {
-            content: "";
-            border-right: 1px solid var(--caret);
-            animation: blink 0.5s linear infinite;
-        }
-        
-        .typewriter.thick::after {
-            border-right: 1ch solid var(--caret);
-        }
-        
-        .typewriter.nocaret::after {
-            border-right: 0;
-        }
-        
-        @media (prefers-reduced-motion) {
-            .typewriter::after {
-                animation: none;
-            }
-            
-            @keyframes sequencePopup {
-                0%, 100% { content: "GR4V17Y"; }
-                100% { content: "Gravity"; }
-            }
-          
-            .typewriter::before {
-                content: "Gr";
-                animation: sequencePopup 12s linear infinite;
-                animation-iteration-count: 1;
-            }
-        } 
-        /* Mover */
-        @keyframes mover {
-            0% { opacity: 0; transform: translate(-10px, 0); }
-            50% { opacity: 0.6; }
-            100%{ opacity: 1; transform: translate(0, 0); }
-        } 
-        @keyframes mover2 {
-            0% { opacity: 0; transform: translate(-200px, 0); }
-            100% { opacity: 1; transform: translate(0, 0); }
-        }
-        
-        /* ------------------------------ */ 
-/* --------------- */
+.typewriter::before {
+    content: "Gravity";
+    animation: typing 13.5s;
+}
+.typewriter::after {
+    content: "";
+    border-right: 1px solid currentColor;
+    animation: blink 0.5s linear infinite;
+}
+.typewriter.thick::after {
+    border-right: 1ch solid currentColor;
+}
+.typewriter.nocaret::after {
+    border-right: 0;
+}
+
+/* Animações mover */
+@keyframes mover {
+    0% { opacity: 0; transform: translate(-10px, 0); }
+    50% { opacity: 0.6; }
+    100% { opacity: 1; transform: translate(0, 0); }
+}
+@keyframes mover2 {
+    0% { opacity: 0; transform: translate(-10px, 0); }
+    50% { opacity: 0.6; }
+    100%{ opacity: 1; transform: translate(0, 0); }
+} 
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        top: 40%;
+        transform: translate(-50%, -40%);
+    }
+
+    .textoHero {
+        margin: 0;
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
+    .imagemHero {
+        margin: 1rem 0;
+    }
+
+    .img-proto {
+        width: 40vh;
+    }
+
+    .navbar {
+        padding: 0.5rem 1rem;
+    }
+
+    .tituloNav {
+        font-size: 1.25rem;
+    }
+
+    .toggleNav {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .textoHero {
+        font-size: 1.25rem;
+    }
+
+    .img-proto {
+        width: 30vh;
+    }
+}
+/* ---------------------------------------------------- */
+
+/* SOBRE */
+.sobre{
+    background-color: #191825;
+    color: #FFA3FD;
+}
+
+.tituloSobre {
+    text-align: center;
+    color: #79018C;
+    font-size: 2.5rem;
+}
+.conteudoSobre{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.textoSobre {
+    flex: 1 1 60%;
+    padding-top: 5rem;
+}
+.protoFormal{
+    width: 40vh;
+    animation: mover 0.8s linear;
+    animation-play-state: paused;
+    animation-delay: calc(var(--scroll) * -1s);
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+}
