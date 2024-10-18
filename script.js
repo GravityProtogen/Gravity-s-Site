@@ -1,21 +1,26 @@
-// Manipulação do Scroll para definir a propriedade CSS '--scroll'
-window.addEventListener('scroll', () => {
-    document.body.style.setProperty('--scroll', window.scrollY / (document.body.offsetHeight - window.innerHeight));
-}, false);
 
-// Adiciona a classe 'navbarDark' na navbar ao rolar além de 900px
-const header = document.querySelector('.navbar');
+document.addEventListener("DOMContentLoaded", function() {
+    
 
-window.onscroll = function() {
-    var top = window.scrollY;
-    if(top >= 900) {
-        header.classList.add('navbarDark');
-    }
-    else {
-        header.classList.remove('navbarDark');
-    }
-}
+    // Seleciona a img
+    const protoFormalImg = document.querySelector('.protoFormal');
 
+    // Cria observador
+    const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // Se está em view, adiciona a class animate para rodar a animação
+            protoFormalImg.classList.add('animate');
+        } else {
+            // Se não, remove a class animate
+            protoFormalImg.classList.remove('animate');
+        }
+    });
+});
+
+// Observe the protoFormal image
+observer.observe(protoFormalImg);
+});
 // Toggle do Menu de Navegação em Dispositivos Móveis
 const navbarToggler = document.getElementById('navbar-toggler');
 const navbarMenu = document.getElementById('navbar-menu');
@@ -23,3 +28,4 @@ const navbarMenu = document.getElementById('navbar-menu');
 navbarToggler.addEventListener('click', () => {
     navbarMenu.classList.toggle('active');
 });
+
