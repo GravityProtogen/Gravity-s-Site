@@ -274,6 +274,9 @@ section {
     .toggleNav {
         font-size: 0.9rem;
     }
+    .textoBoxSobre{
+        max-width: 100%;
+    }
 }
 
 @media (max-width: 480px) {
