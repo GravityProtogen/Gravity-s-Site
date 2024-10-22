@@ -53,4 +53,49 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Observa a imagem do ProtoFormal para animação
     protoFormalObserver.observe(protoFormalImg);
+
+
+  // ------------------------
+    // ANIMAÇÃO DO PosterRed
+    // Seleciona a imagem do PosterRed
+    const posterRed = document.querySelector('.posterRed');
+
+    // Cria um novo observador para a animação da imagem
+    const posterRedObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Adiciona a classe animate para rodar a animação
+                posterRed.classList.add('animate');
+            } else {
+                // Remove a classe animate quando não estiver visível
+                posterRed.classList.remove('animate');
+            }
+        });
+    }, { threshold: 0.5 });
+
+    // Observa a imagem do ProtoFormal para animação
+    posterRedObserver.observe(posterRed);
+
 });
+
+// Function to fetch and update the number
+function updateNumber() {
+    fetch('./dados.json') // Replace with your JSON file path
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Assuming your JSON has a structure like: { "number": 42 }
+            const numberToDisplay = data.vezesAssistidas; // Adjust based on your JSON structure
+            document.getElementById('vezesAssistidas').textContent = numberToDisplay;
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+}
+
+// Call the function to update the number
+updateNumber();

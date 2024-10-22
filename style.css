@@ -137,7 +137,7 @@ section {
 }
 .textoHero {
     flex: 1;
-    max-width: 600px; /* Set a max-width for the text */
+    max-width: 600px;
     font-size: 4rem;
 }
 .imagemHero {
@@ -187,7 +187,7 @@ section {
 
 .textoBoxSobre {
     flex: 1; /* Allows it to take up the left side of the section */
-    max-width: 45%; /* Make sure it doesn't take too much space */
+    max-width: 20vw; /* Make sure it doesn't take too much space */
     background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
     padding: 2rem;
     border-radius: 15px; /* Rounded corners for the box */
@@ -216,7 +216,53 @@ section {
     animation: fadeInDireita 0.8s ease forwards; /* Add animation */
 }
 /* --------------------------- */
+/* ONE PIECE RED */
+.red{
+    background-color: #191825;
+    color: #FFA3FD;
+    scroll-snap-align: start;
+    background-image: url(./imagens/onepiecered.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
+.containerRed{
+    display: flex;
+    justify-content: space-between; /* Ensure space between text box and image */
+    flex-direction: column;
+    padding: 2rem;
+    flex-wrap: wrap;
+}
+.posterRed{
+    width: 30vh; /* Size of the image */
+    border-radius: 10px; /* Optional: Add a slight border-radius to the image */
+    margin-top: 5vh;
+    margin-left: 40vw;
+    opacity: 0;
+}
+.posterRed.animate{
+    animation: fadeInAcima 0.8s ease forwards
+}
+
+.textoBoxRed{
+    max-width: 45vw; /* Make sure it doesn't take too much space */
+    margin-left: 25vw;
+    text-align: center;
+    background-color: rgba(243, 8, 8, 0.80); /* Semi-transparent background */
+    padding: 2rem;
+    border-radius: 15px; /* Rounded corners for the box */
+}
+.textoRed{
+    color: #080101;
+    font-size: 3rem;
+}
+#vezesAssistidas{
+    color: gold;
+    font-size: 5rem;
+}
+/* ----------- */
 /* ------------------------------------- ANIMAÇÕES -------------------------- */
 /* typewriter */
 @keyframes typing {
@@ -276,6 +322,16 @@ section {
     0% {
         opacity: 0;
         transform: translateX(100px); /* Start off-screen to the right */
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0); /* End at original position */
+    }
+}
+@keyframes fadeInAcima {
+    0% {
+        opacity: 0;
+        transform: translateY(100px); /* Start off-screen to the right */
     }
     100% {
         opacity: 1;
