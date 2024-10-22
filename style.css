@@ -27,6 +27,55 @@ section {
     will-change: scroll-position;      /* Adjust this to match the height of the navbar if needed */
 }
 
+/* Indicador de Seção */
+.indicadorSecao {
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 1001;
+}
+
+.indicador {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #79018C; /* Cor das bolinhas inativas */
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: relative;
+}
+
+.indicador.active {
+    background-color: #FFA3FD;; /* Cor da bolinha ativa */
+}
+
+/* Nome da seção */
+.indicador::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom:50%;
+    left: 250%; /* Adjust depending on where you want the tooltip */
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #c906e7;
+    padding: 5px;
+    border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    font-size: 12px;
+}
+
+.indicador:hover::after {
+    opacity: 1;
+}
+
+
 /* Navbar */
 .navbar {
     position: fixed;
