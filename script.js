@@ -99,3 +99,27 @@ function updateNumber() {
 
 // Call the function to update the number
 updateNumber();
+
+
+//Pegar Api do FFXIV Collect 
+
+function atualizarCanyou(){
+    fetch("https://ffxivcollect.com/api/characters/52094161") //URL da API
+    .then(response => {
+        // Try Catch dos Erros
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        document.getElementById('nomeCanyou').textContent = data.name;
+        document.getElementById('serverCanyou').textContent = data.server;
+        document.getElementById('dataCanyou').textContent = data.data_center;
+        document.getElementById('retratoCanyou').src = data.portrait;
+    })
+    .catch(error =>{
+        console.error("Erro na operação de fetch:", error)
+    });
+}
+    atualizarCanyou()
