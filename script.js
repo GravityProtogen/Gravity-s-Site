@@ -76,50 +76,76 @@ document.addEventListener("DOMContentLoaded", function() {
     // Observa a imagem do ProtoFormal para animação
     posterRedObserver.observe(posterRed);
 
-});
+    // Personagens
 
-// Function to fetch and update the number
-function updateNumber() {
-    fetch('./dados.json') // Replace with your JSON file path
+    const panels = document.querySelectorAll('.panel');
+
+    panels.forEach(panel => {
+        panel.addEventListener('click', () => {
+            
+            if(panel.classList.contains("active")) {
+                panel.classList.remove('active')
+            }
+            else{
+                removeActiveClasses();
+                panel.classList.add('active');
+            }
+        })
+    })
+
+    function removeActiveClasses(){
+        panels.forEach(panel => {
+            panel.classList.remove('active');
+        })
+    }
+
+
+
+    // Function to fetch and update the number
+    function updateNumber() {
+        fetch('./dados.json') // Replace with your JSON file path
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Assuming your JSON has a structure like: { "number": 42 }
+                const numberToDisplay = data.vezesAssistidas; // Adjust based on your JSON structure
+                document.getElementById('vezesAssistidas').textContent = numberToDisplay;
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
+    }
+
+    // Call the function to update the number
+    updateNumber();
+
+
+    //Pegar Api do FFXIV Collect 
+
+    function atualizarCanyou(){
+        fetch("https://ffxivcollect.com/api/characters/52094161") //URL da API
         .then(response => {
+            // Try Catch dos Erros
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
             return response.json();
         })
         .then(data => {
-            // Assuming your JSON has a structure like: { "number": 42 }
-            const numberToDisplay = data.vezesAssistidas; // Adjust based on your JSON structure
-            document.getElementById('vezesAssistidas').textContent = numberToDisplay;
+            document.getElementById('nomeCanyou').textContent = data.name;
+            document.getElementById('serverCanyou').textContent = data.server;
+            document.getElementById('dataCanyou').textContent = data.data_center;
+            document.getElementById('retratoCanyou').src = data.portrait;
         })
-        .catch(error => {
-            console.error('There was a problem with the fetch operation:', error);
+        .catch(error =>{
+            console.error("Erro na operação de fetch:", error)
         });
-}
-
-// Call the function to update the number
-updateNumber();
+    }
+        atualizarCanyou()
 
 
-//Pegar Api do FFXIV Collect 
-
-function atualizarCanyou(){
-    fetch("https://ffxivcollect.com/api/characters/52094161") //URL da API
-    .then(response => {
-        // Try Catch dos Erros
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(data => {
-        document.getElementById('nomeCanyou').textContent = data.name;
-        document.getElementById('serverCanyou').textContent = data.server;
-        document.getElementById('dataCanyou').textContent = data.data_center;
-        document.getElementById('retratoCanyou').src = data.portrait;
-    })
-    .catch(error =>{
-        console.error("Erro na operação de fetch:", error)
-    });
-}
-    atualizarCanyou()
+});
