@@ -302,6 +302,7 @@ section {
     font-size: 1.2rem;
     line-height: 1.4;
     overflow-y: auto;
+    overflow-x: auto;
 }
 
 .panel.active .descricao {
@@ -314,7 +315,16 @@ section {
     transition: opacity 0.4s ease-in 0.4s;
 }
 /* personalização personagens */
+.thanTexto{
+    font-size: 0.8rem;
+    color: goldenrod;
+}
+.hollow{
 
+}
+.ethan{
+    object-position: 50% 10%;
+}
 .automata{
     background-image: url(./imagens/personagens/Site-background.jpg);
 }
