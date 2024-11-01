@@ -82,14 +82,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     panels.forEach(panel => {
         panel.addEventListener('click', () => {
-            
-            if(panel.classList.contains("active")) {
-                panel.classList.remove('active')
-            }
-            else{
-                removeActiveClasses();
-                panel.classList.add('active');
-            }
+            removeActiveClasses();
+            panel.classList.add('active');
         })
     })
 

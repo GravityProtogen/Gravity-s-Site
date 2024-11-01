@@ -242,28 +242,12 @@ section {
 .panel {
     display: flex;
     align-items: center;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 30vh;
-    width: 15vw;
-    border-radius: 50px;
-    position: relative;
-    transition: height 0.5s ease-in, width 0.5s ease-in;
-    color: #fff;
-    cursor: pointer;
-    margin: 10px;
-}
-
-.panel {
-    display: flex;
-    align-items: center;
     justify-content: flex-start; /* Aligns the image and descricao horizontally */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 30vh;
-    width: 15vw;
+    height: 80vh;
+    width: 10vw;
     border-radius: 50px;
     position: relative;
     transition: height 0.5s ease-in, width 0.5s ease-in;
@@ -272,6 +256,7 @@ section {
     margin: 10px;
     overflow: hidden;
 }
+
 
 .panel h3 {
     position: absolute;
@@ -282,7 +267,8 @@ section {
 
 .panel.active {
     width: 50vw;
-    height: 50vh;
+    height: 80vh;
+    cursor:grab;
 }
 
 .panel.active img {
@@ -318,6 +304,10 @@ section {
 
 .than{
     background-image: url(./imagens/personagens/backgrounds/sthradd.png);
+    
+}
+.thanImg{
+    object-position: 30%;
 }
 .thanTexto{
     font-size: 0.7rem;
@@ -331,13 +321,14 @@ section {
 .panel.hollow h3{
     color:black
 }
-.ethan{
-    object-position: 50% 10%;
-}
+
 
 
 .automata{
     background-image: url(./imagens/personagens/backgrounds/Site-background.jpg);
+}
+.vulcan{
+    object-position: 20%
 }
 /* ----------- */
 /* Canyou Hearmetob */
