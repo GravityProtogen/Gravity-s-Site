@@ -312,23 +312,37 @@ section {
 .thanTexto{
     font-size: 0.7rem;
     color: white;
-    background-color: brown;
+    background-color: rgba(0, 0, 0, 0.40);
+    border-radius: 10% 0% 0% 10%;
 }
 
 .hollow{
-    
+    background-image: url(./imagens/personagens/backgrounds/Hollow.png) 
+}
+.hollowTexto{
+    background-color: rgba(0, 0, 0, 0.40);
+    border-radius: 10% 0% 0% 10%;
 }
 .panel.hollow h3{
     color:black
 }
 
-
-
+.ash{
+    background-image: url(./imagens/personagens/backgrounds/cisne.png);
+}
+.ashTexto{
+    background-color: rgba(0, 0, 0, 0.40);
+    border-radius: 10% 0% 0% 10%;
+}
 .automata{
     background-image: url(./imagens/personagens/backgrounds/Site-background.jpg);
 }
 .vulcan{
     object-position: 20%
+}
+.vulcanTexto{
+    background-color: rgba(0, 0, 0, 0.40);
+    border-radius: 10% 0% 0% 10%;
 }
 /* ----------- */
 /* Canyou Hearmetob */
